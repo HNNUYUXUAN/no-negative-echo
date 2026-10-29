@@ -3,12 +3,12 @@
   "package_id": "io.github.hnnuyuxuan.no-negative-echo",
   "source_repository": "https://github.com/HNNUYUXUAN/no-negative-echo",
   "files": {
-    "SKILL.md": "64d4be5b1a0b434c495eb3618704239082ab0d61f3cc672b6a4733660ad8b885",
     "agents/openai.yaml": "a337c5887cddd05371b434b643d34a6743a704ddeec3e550252fb89ae9e272d6",
     "assets/decision-boundary.png": "3c80021dc245b4a3fe02a18434fc200fae0db3810c8fd451acc25bfb2e831d7a",
     "assets/icon-400.png": "9ba3b39b106a1f6b6a376a4ccf91373e8f80923d87ca244892c35c7f95a1a121",
     "assets/icon.png": "052b7bf0101ab53cbfe2a909155d36df7554acbfbefeefbe94f00e5cf2e74b74",
-    "delivery.json": "36704e598db7aead0056c669474405a2694421d126ebe9fea9575f8b7baff564",
+    "delivery.json": "0a6be25892812cd7b62d6d862b50d477582080eb3852a76203d15baa7c42efce",
+    "LICENSE": "49f90d79b088ae3836e6c97dc805143015762acc0e6975f75d18c2316dabc221",
     "references/en/collaboration.md": "7c609f4f0661dc48b957041fcf2df93b390bed395c3bdff3566bfaaaef8aac45",
     "references/en/engineering.md": "419a6f814dfd2c5fc68269e532d42296ee8a73e2afe6e4f8af7831ae26debd24",
     "references/en/expression.md": "e5416102c07e2cfb24e491d01ad8911191298823fdc184262d3e8654b1c5b5e1",
@@ -18,6 +18,7 @@
     "references/zh-CN/engineering.md": "901526cf2335be29d55a90a55fb8c6abc3a2c6a46efd4cb849890b7abf9f4211",
     "references/zh-CN/expression.md": "ca881a12ed523ebbe83dd59d2a18aed1c2c06d54dc073ebb7636511c7c136f45",
     "references/zh-CN/public-copy.md": "d2e56aebd25abe55737dfca01e75831b932eb373162330e155c30d63e412b342",
-    "scripts/check_surface.py": "d63a03fb1052706e1e5d1b23d413251dff5690e0c3e837c069826de6fe06661b"
+    "scripts/check_surface.py": "d63a03fb1052706e1e5d1b23d413251dff5690e0c3e837c069826de6fe06661b",
+    "SKILL.md": "66e8bcffb349c5d6e3bdb5afc2314c7f1f26a724079e7478f2141cb7fa020aa0"
   }
 }

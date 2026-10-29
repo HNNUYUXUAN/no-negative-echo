@@ -1,0 +1,29 @@
+{
+  "version": "2.1.0",
+  "date": "2026-10-29",
+  "host": "codex-cli 0.165.0-alpha.1.2",
+  "model": "unknown",
+  "method": "Two single-turn text-injection smoke tasks using the entry and public-copy modules; host-native loading and other harnesses are untested.",
+  "results": [
+    {
+      "language": "zh-CN",
+      "input": "给客户写80字以内的介绍：工具支持本地目录每日增量备份，按变更块保存，可按日期恢复。没有耗时测量。只输出成稿。",
+      "exit_code": 0,
+      "output": "这款工具支持本地目录每日增量备份，按变更块保存数据，并可按日期恢复，方便留存和找回不同时间的文件版本。",
+      "sources": {
+        "no-negative-echo/SKILL.md": "66e8bcffb349c5d6e3bdb5afc2314c7f1f26a724079e7478f2141cb7fa020aa0",
+        "no-negative-echo/references/zh-CN/public-copy.md": "d2e56aebd25abe55737dfca01e75831b932eb373162330e155c30d63e412b342"
+      }
+    },
+    {
+      "language": "en",
+      "input": "Write a public introduction for a tool that groups approval requests with identical permissions so an approver can process each group once. No efficiency measurements exist. Return only the introduction.",
+      "exit_code": 0,
+      "output": "Review approval requests by permission set. The tool groups requests with identical permissions, letting an approver process each group once. Grouping is designed to reduce repeated review while keeping the permissions being approved clear.",
+      "sources": {
+        "no-negative-echo/SKILL.md": "66e8bcffb349c5d6e3bdb5afc2314c7f1f26a724079e7478f2141cb7fa020aa0",
+        "no-negative-echo/references/en/public-copy.md": "6c0ee39455bd72d7923f8aa3a7b5663615511c81127b42e6b9ab070ed5e9bcc2"
+      }
+    }
+  ]
+}

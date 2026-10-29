@@ -1,0 +1,41 @@
+# No Negative Echo
+
+> Portable bilingual instructions for direct answers, sustained collaboration, public writing and root-cause engineering repairs. Maintained by HNNUYUXUAN under MIT with LB623 attribution.
+
+This index is for agents reading a checkout or repository. Relative links resolve from the repository root. Start with the user's task, then read the relevant guide and language modules. Host instructions and permissions govern execution. Daily instruction use needs no package runtime or upstream network access. Python 3.10+ is used by the optional scanner and installer. Compatibility and observed behavior are recorded separately.
+
+## Start here
+
+- [Skill entry](no-negative-echo/SKILL.md): Shared rules and language routing; install the complete containing directory.
+- [Full reading bundle](llms-full.txt): Generated offline copy of usage, installation, integration, maintenance, bilingual rules and license.
+- [Installation](INSTALL.md): Current checksum, presets, custom locations and source migration.
+- [Usage](docs/en/usage.md): Inputs, examples and acceptance checks.
+- [中文使用说明](docs/zh-CN/usage.md): 中文任务示例与验收。
+
+## Harnesses and maintenance
+
+- [Harness integration](docs/en/harnesses.md): Native skills, project instructions, plain text and evidence matrix.
+- [中文接入说明](docs/zh-CN/harnesses.md): 宿主路径、调用方式与接收端验证。
+- [Maintenance](docs/en/maintenance.md): Offline continuity, release generation, upgrade and rollback.
+- [中文维护指南](docs/zh-CN/maintenance.md): 离线副本、发布、回滚与下游维护。
+- [Version](VERSION): Runtime release number.
+- [Changelog](CHANGELOG.md): Release scope and migration information.
+- [Validation](VALIDATION.md): Observed tests and limits by release.
+
+## Rule modules
+
+- [Expression](no-negative-echo/references/en/expression.md): Direct answers and corrections.
+- [Collaboration](no-negative-echo/references/en/collaboration.md): Authorized progress and evidence.
+- [Public copy](no-negative-echo/references/en/public-copy.md): Capabilities, mechanisms and supported value.
+- [Engineering](no-negative-echo/references/en/engineering.md): Repair at the source; coherent deliverables.
+- [自然表达](no-negative-echo/references/zh-CN/expression.md): 回答与纠正。
+- [持续协作](no-negative-echo/references/zh-CN/collaboration.md): 授权、推进与证据。
+- [对外成稿](no-negative-echo/references/zh-CN/public-copy.md): 成果、方法与收益。
+- [根因修复](no-negative-echo/references/zh-CN/engineering.md): 实现与交付的一致性。
+
+## Optional
+
+- [High-assurance finalization](no-negative-echo/references/high-assurance-finalization.md): Read when the task requires its audit scope.
+- [Evaluation protocol](evals/evaluation-protocol.md): Behavioral evaluation design.
+- [Research](research.md): Community sources and scenario selection.
+- [License](LICENSE): MIT terms and original attribution.

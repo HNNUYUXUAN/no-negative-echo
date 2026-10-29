@@ -1,5 +1,9 @@
 # Fork installation
 
+Runtime version: 2.1.0. For host paths and invocation, see [Harness integration](docs/en/harnesses.md) / [中文接入说明](docs/zh-CN/harnesses.md). For an existing fork installation, preserve a backup outside discovery before upgrading; see [Maintenance](docs/en/maintenance.md).
+
+The complete runtime directory includes its MIT license and referenced modules. The installer uses only files in this checkout and the Python standard library. A retained checkout can be installed offline. An official host installer can also install the complete runtime directory without running this repository's Python installer.
+
 ## Source migration from LB623
 
 The fork has package identity `io.github.hnnuyuxuan.no-negative-echo`. An existing LB623 package is a separate source identity. Before migration, verify its provenance and every listed file against the recorded upstream baseline, and check for extra or user-modified files. Preserve conflicts for review.
@@ -26,7 +30,7 @@ Otherwise, use the bundled installer:
 
    | Host | Preset | Default destination |
    |---|---|---|
-   | Codex / ChatGPT desktop | `codex` | `~/.agents/skills` |
+   | Codex CLI / Codex desktop | `codex` | `~/.agents/skills` |
    | Claude Code | `claude` | `~/.claude/skills` |
    | Cursor | `cursor` | `~/.cursor/skills` |
    | Gemini CLI | `gemini` | `~/.gemini/skills` |
@@ -39,7 +43,7 @@ Otherwise, use the bundled installer:
 
    ```bash
    python3 -I -B scripts/install_skill.py \
-     --expected-provenance-sha256 41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f \
+     --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 \
      --agent HOST_PRESET
    ```
 
@@ -67,7 +71,7 @@ For a custom destination, use only a documented Skill root for that host:
 
 ```bash
 python3 -I -B scripts/install_skill.py \
-  --expected-provenance-sha256 41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f \
+  --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 \
   --skills-dir /absolute/path/to/skills \
   --discovery-root /absolute/path/to/skills
 ```

@@ -1,6 +1,8 @@
 ---
 name: no-negative-echo
-description: "Keep Codex answers, collaboration, public drafts and engineering changes focused on the accepted result. Use for direct answers, corrections, progress reports, artifact writing, commits, PRs and root-cause repairs."
+description: "Keep agent answers, collaboration, public drafts and engineering changes focused on the accepted result. Use for direct answers, corrections, progress reports, artifact writing, commits, PRs and root-cause repairs."
+license: MIT
+compatibility: "Instruction-only use requires a host that can load this file and its references. Python 3.10+ is optional for the scanner."
 ---
 # No Negative Echo
 
@@ -18,7 +20,7 @@ Work from the user's current goal and observed state. Produce useful results tha
 
 ## Read the relevant module
 
-Choose zh-CN for Chinese conversations and en otherwise. Read only the module relevant to the current work; retain its rules for the session.
+Choose zh-CN for Chinese conversations and en otherwise. Read only the module relevant to the current work; retain its rules for the session. Resolve paths relative to this skill directory, using the host's file tools. Invocation syntax and tool names belong to the host; apply these rules within its permissions.
 
 | Situation | 中文 | English |
 |---|---|---|
