@@ -21,19 +21,7 @@ A standard `SKILL.md` entry and on-demand modules make the same rules reusable a
 
 The [SKILL.md](no-negative-echo/SKILL.md) entry point provides shared rules and routes each task to the relevant Chinese or English module. A task can combine modules: engineering rules guide a repair, while writing rules guide its public introduction.
 
-```mermaid
-flowchart TD
-    A["Host loads SKILL.md"] --> B["Select task and language modules"]
-    B --> C["Expression"]
-    B --> D["Collaboration"]
-    B --> E["Public writing"]
-    B --> F["Engineering"]
-    C --> G["Answers, implementation, docs and handoff"]
-    D --> G
-    E --> G
-    F --> G
-    G --> H["Check results against observed evidence"]
-```
+![The host selects task and language modules, produces deliverables, and checks evidence](docs/assets/workflow-en.svg)
 
 1. **Establish the current goal.** Use accepted requirements, existing authorization and the observed state to determine the result to deliver.
 2. **Produce the result for its context.** Answer the question, repair code at the source of the defect, and organize writing around the audience's needs, capabilities and value.
