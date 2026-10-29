@@ -10,12 +10,21 @@ A standard `SKILL.md` entry and on-demand modules make the same rules reusable a
 
 ## What you can use it for
 
-| Situation | How the skill approaches it | Value to the reader or collaborator |
-|---|---|---|
-| Questions and requirement corrections | Answer the current question, explain what the reader needs and carry corrections into subsequent results | Make answers easier to find and keep requirements consistent across turns |
-| Ongoing tasks | Continue authorized work, report substantive findings and decisions, and verify the actual usage path | Give progress and completion claims a clear basis for deciding what comes next |
-| READMEs, project introductions and customer materials | Connect capabilities, mechanisms and supported benefits, with clear applicability | Help new readers understand what the project does and how it helps them |
-| Code repairs and commits | Locate the abstraction, data flow, interface or state source causing a defect, then align implementation, configuration and documentation | Produce a current design that can be understood and maintained on its own |
+### Answer questions and apply corrections
+
+Answer the current question, explain what the reader needs and carry corrections into subsequent results. Make answers easier to find and keep requirements consistent across turns.
+
+### Complete authorized work
+
+Continue authorized work, report substantive findings, blockers and decisions, and verify the actual usage path. Give progress and completion claims a clear basis for deciding what comes next.
+
+### Explain outcomes and value
+
+Connect capabilities, mechanisms and supported benefits in READMEs, project introductions and customer materials, with clear applicability. Help new readers understand what the project does and how it helps them.
+
+### Repair at the source
+
+Locate the abstraction, data flow, interface or state source causing a defect, then align implementation, configuration and documentation. Produce a current design that can be understood and maintained on its own.
 
 ## How it works
 
