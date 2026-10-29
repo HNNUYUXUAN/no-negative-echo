@@ -11,6 +11,8 @@
 - 中英文各执行 1 个 Codex 单轮成稿样例，均读取注入的新版入口与对应模块文本；输出保留给定能力和适用范围，未添加无依据的量化收益。输入、输出和源文件哈希见 [portability-smoke.json](evals/portability-smoke.json)。这验证文本注入路径，原生技能加载状态未测。
 - 六种本地 harness 的目录或接入方式有对应文档依据。除 Codex 文本样例外，其余宿主原生行为和跨设备运行均待接收者验证，见[接入矩阵](docs/zh-CN/harnesses.md)。
 - README 静态检查无 error/warning；新增使用、接入、维护与 llms 文档的本地链接均可解析。双语内容与实际代码人工核对。发布生成器检查通过。
+- 本机 Codex 安装已更新至 2.1.0，运行文件逐字节核对通过，安装器将 2.0.0 备份保存在技能发现目录之外。新会话需按宿主方式重新加载。
+- Chrome 页面检查覆盖普通桌面与手机宽度的浅色 README；按实测将场景表格改为段落，将图示交付为双语 SVG，并优化小屏字形。深色渲染检查受浏览器调试接口限制，本次未完成。GitHub Actions 本次未返回运行记录，以上测试结果来自本机。
 
 English: 120 tests ran (112 passed, 8 platform skips). A relocated v2.0.0 installation upgraded byte-for-byte to v2.1.0. A socket-blocked runtime relocation test retained all files and the license. Two single-turn Codex text-injection writing samples passed manual review. Other hosts' native loading and behavior, other devices, and operating systems were not exercised locally. Historical v2.0.0 results below retain their original scope.
 
