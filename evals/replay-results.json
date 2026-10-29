@@ -1,0 +1,528 @@
+{
+  "host": "codex-cli 0.165.0-alpha.1.2 Windows",
+  "method": "Manual skill-content injection, synthetic conversation replay; shared host inventory, no native activation claim. Code surfaces are returned text, not autonomous filesystem edits.",
+  "scheduled": 40,
+  "results": [
+    {
+      "condition": "upstream",
+      "id": "direct-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "CSV（逗号分隔值）是一种用纯文本保存表格数据的文件格式，通常每行代表一条记录，各字段用逗号分隔。它常用于在 Excel、数据库和程序之间交换数据，文件扩展名通常是 .csv。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "4bb123cacb5dd9b9704cc354171f93b143f6669f8815111a72926f79f1c5ff3c",
+      "output_sha256": "7f39b67f6c80e2693ac7d454219e77d4641e2c998aedc7d264727f25a432f6fd"
+    },
+    {
+      "condition": "fork",
+      "id": "direct-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "CSV 是一种用纯文本保存表格数据的文件格式，通常每行表示一条记录，用逗号分隔各个字段。它常用于在 Excel、数据库和其他软件之间交换数据。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "165408549de7ef6e75b60830a2c235bc75ac4338a3496bc17292d48e69dc0845",
+      "output_sha256": "990f3b5734c04ed7185256010a9974660cf38bf5de5f94a06e0e506ad3767ad9"
+    },
+    {
+      "condition": "upstream",
+      "id": "direct-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "A database index stores selected column values in a structure that helps the database find matching rows quickly. It speeds up lookups by reducing how much data the database needs to scan, much like a book’s index helps you find a topic without reading every page.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "01b542f2a5e099a41cb3e30eb97684993e4105ff51a75b6e5c29c07204c7ab3a",
+      "output_sha256": "81dc336cc103321c7950d71de4e41e92f159e0583465abc605410279b2f522d1"
+    },
+    {
+      "condition": "fork",
+      "id": "direct-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "A database index stores selected column values in a structure that helps the database find matching rows without scanning the entire table. This speeds up lookups, though the index uses extra storage and must be updated when data changes.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "9e203fcb4bc9172fa1ef398135ae74325e4f3c5fc440afe87f42b275a2e42d48",
+      "output_sha256": "a8ac068d4238c27dd28660043912a044adf2463493cdd107740f8c67b8605ba9"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "标题：番茄炒蛋\n\n1. 番茄切块，鸡蛋加少许盐打散。\n2. 热锅放油，倒入蛋液炒至凝固，盛出备用。\n3. 锅中补少许油，炒软番茄，加入鸡蛋和适量盐，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "db76a51f1b713412ba672fea7a1b4f55c3b6788b06e96cefe61e7743eb7f5d8c",
+      "output_sha256": "cf6253245007536b37cf87f2f1df9cbaafa84ae2a87127562b6afad9e65c9b09"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "标题：番茄炒蛋\n\n1. 番茄切块，鸡蛋加少许盐打散。\n2. 锅中热油，倒入蛋液炒至凝固，盛出备用。\n3. 锅中补少许油，炒软番茄至出汁，加入鸡蛋和适量盐，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "092af8c01886c786aa8d9398c5f2bdb66df716e7531167cb4da379026a667cc3",
+      "output_sha256": "cc8b91d33752101d9e4c3b28f1d0544f424da2c10370ec8335ae86073c9dbf48"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-zh",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "番茄炒蛋\n\n1. 番茄切块，鸡蛋打散，加少许盐搅匀。\n2. 热锅放油，倒入蛋液，炒至凝固后盛出。\n3. 锅中补少许油，炒软番茄，倒入鸡蛋，加盐调味，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "db76a51f1b713412ba672fea7a1b4f55c3b6788b06e96cefe61e7743eb7f5d8c",
+      "output_sha256": "af21c559d27b285588e8292262ab834b971e963d88641b32e990c4107013cc2d"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-zh",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "番茄炒蛋\n\n1. 番茄切块，鸡蛋加少许盐打散。\n2. 锅中热油，倒入蛋液炒至凝固，盛出备用。\n3. 锅中补少许油，放入番茄炒出汁，加入鸡蛋和适量盐，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "092af8c01886c786aa8d9398c5f2bdb66df716e7531167cb4da379026a667cc3",
+      "output_sha256": "cd38036e75f4c230720fc97b2dcbac69bfec560f355995b4e7ae1e34ee84bf5c"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-zh",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "标题：番茄炒蛋\n\n1. 番茄切块，鸡蛋加少许盐打散。\n2. 热锅倒油，倒入蛋液炒至凝固，盛出备用。\n3. 锅中补少许油，炒软番茄，加入鸡蛋和适量盐，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "db76a51f1b713412ba672fea7a1b4f55c3b6788b06e96cefe61e7743eb7f5d8c",
+      "output_sha256": "8c209f222350a9d671e3966022659d49b5fa9c60cb4236e12ca48aa97b5c8671"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-zh",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "番茄炒蛋\n\n1. 番茄切块，鸡蛋加少许盐打散。\n2. 锅中热油，倒入蛋液，炒至凝固后盛出。\n3. 锅中补少许油，炒软番茄，加入鸡蛋和适量盐，翻炒均匀即可。",
+        "filename": "番茄炒蛋.md",
+        "code": ""
+      },
+      "prompt_sha256": "092af8c01886c786aa8d9398c5f2bdb66df716e7531167cb4da379026a667cc3",
+      "output_sha256": "fb421635f8fc31f4d4dd0185a14069864df7ecca1c962036c8e7a8d78546f11e"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows the current branch, staged and unstaged changes, and untracked files.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "19a408033be09a98ef776e9886279ac96d1cfdb32bbb372ef10b4560e7c2f621",
+      "output_sha256": "7e67c2bd62b3f38b5851036e91032ca1621312cc3bb7f7d5ccc8e8492a64b82f"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows the current branch, staged and unstaged changes, and untracked files. It can also show merge conflicts and whether your branch is ahead of or behind its upstream.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "e61d1ae84806460f89fb5631c4c6809e0191decf007525e8bdae86459f7a331f",
+      "output_sha256": "d5846f47d0c58a5e0b109d51266a3e435f6936eb7f7bb6799f03b01109c94434"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-en",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows the current branch, staged and unstaged changes, and untracked files.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "19a408033be09a98ef776e9886279ac96d1cfdb32bbb372ef10b4560e7c2f621",
+      "output_sha256": "7e67c2bd62b3f38b5851036e91032ca1621312cc3bb7f7d5ccc8e8492a64b82f"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-en",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows the current branch, staged and unstaged changes, and untracked files. It may also show how your branch compares with its upstream.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "e61d1ae84806460f89fb5631c4c6809e0191decf007525e8bdae86459f7a331f",
+      "output_sha256": "d335b0453e7ec32b4510b5a92aaad2a3ea3a118aa0e5c8e587733a82e09c2fb3"
+    },
+    {
+      "condition": "upstream",
+      "id": "correction-en",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows the current branch, staged and unstaged changes, and untracked files.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "19a408033be09a98ef776e9886279ac96d1cfdb32bbb372ef10b4560e7c2f621",
+      "output_sha256": "7e67c2bd62b3f38b5851036e91032ca1621312cc3bb7f7d5ccc8e8492a64b82f"
+    },
+    {
+      "condition": "fork",
+      "id": "correction-en",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "`git status` shows your current branch, staged and unstaged changes, and untracked files.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "e61d1ae84806460f89fb5631c4c6809e0191decf007525e8bdae86459f7a331f",
+      "output_sha256": "b6fc5270e4a2c8f5b92c78238b1489e56c5f5b8c8c249348a6c5a3bed6416099"
+    },
+    {
+      "condition": "upstream",
+      "id": "progress",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "已读取 3 个文件，定位到日期解析将 UTC 时间按本地时间处理的问题，接下来修改解析函数，修复导入时的时间偏差。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "36da693618c9282f81e05211b64ec20df1f16bd56abef0abda5a0b358f0f4114",
+      "output_sha256": "5460c6e60070e43f99c1e005cc32d4915c2eea2ca0ad9521fe305c825001669d"
+    },
+    {
+      "condition": "fork",
+      "id": "progress",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "已检查 3 个文件，确认日期解析将 UTC 时间误当作本地时间处理。接下来修改解析函数，并验证导入后的日期是否正确。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "49afda8ce0c63da547cf8e554eea0f780f05496fbe6be9530adb65eab949ab1f",
+      "output_sha256": "b1b5fab790e7174f19fac374abe75b7e173c965da13ca120a29cc0b8718feb08"
+    },
+    {
+      "condition": "upstream",
+      "id": "progress",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "已读取 3 个文件，确认日期解析将 UTC 时间当作本地时间处理。接下来修改解析函数，修复导入时的时间偏差。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "36da693618c9282f81e05211b64ec20df1f16bd56abef0abda5a0b358f0f4114",
+      "output_sha256": "e0220bd8535d9deaa5f5054f7eff1b3dcc8e956a6fd291a104d1184148db137e"
+    },
+    {
+      "condition": "fork",
+      "id": "progress",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "已检查 3 个文件，确认导入问题源于日期解析将 UTC 时间按本地时间处理。接下来修改解析函数，并验证导入后的日期是否正确。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "49afda8ce0c63da547cf8e554eea0f780f05496fbe6be9530adb65eab949ab1f",
+      "output_sha256": "900c39294bb94d80afa22f099a0339812ab813622f7a12267e3e8691810326bc"
+    },
+    {
+      "condition": "upstream",
+      "id": "progress",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "已读完 3 个文件，确认日期解析将 UTC 误当作本地时间处理。接下来修改解析函数，并验证时区转换结果。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "36da693618c9282f81e05211b64ec20df1f16bd56abef0abda5a0b358f0f4114",
+      "output_sha256": "049638f8508d82d2c38a1f9acb5713ecd601645a777d287b611f31cd42465abb"
+    },
+    {
+      "condition": "fork",
+      "id": "progress",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "已检查 3 个文件，确认日期解析将 UTC 时间误当作本地时间处理。接下来修改解析函数，并验证导入后的日期是否正确。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "49afda8ce0c63da547cf8e554eea0f780f05496fbe6be9530adb65eab949ab1f",
+      "output_sha256": "b1b5fab790e7174f19fac374abe75b7e173c965da13ca120a29cc0b8718feb08"
+    },
+    {
+      "condition": "upstream",
+      "id": "partial",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "The configuration is saved and unit tests pass. The interface is not yet verified: browser startup failed with “connection refused.” Next, check that the application server is running and reachable at the configured address, then retry browser verification.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "4d405249f7948cb6d23865127f057ed2809f79e02be14fc90f967c743b2f4c0e",
+      "output_sha256": "ffdb3524bb83a2e58c77d320fd85d3ac725dc03173313b8b97ef2bd99ad71fb2"
+    },
+    {
+      "condition": "fork",
+      "id": "partial",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "The interface has not been verified as working. Configuration is saved and unit tests pass, but browser startup failed with “connection refused,” blocking UI verification. The next step is to diagnose the connection failure, restore browser access, and check the interface through the user’s normal workflow.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "78cf8e4bfe8281360a8b2d40b8aee80be997e687bc0f22e24441a6e97284b9bc",
+      "output_sha256": "a00ef74a77c9a4fb4b6cdffc597184b33b926af8476f751a9d008f5c5c8a6196"
+    },
+    {
+      "condition": "upstream",
+      "id": "public-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "支持每日增量备份，按变更块保存本地目录中的数据，并可按日期恢复，方便管理历史版本与找回文件。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "b8a31db11e044f9dc94d2f0dcf5d96d7f112bfc69f788d5225f213595e4d6024",
+      "output_sha256": "e0b97899f71184a7add94f7641d2de405f1fa8835fb4e40c65b09c3a3f0d188c"
+    },
+    {
+      "condition": "fork",
+      "id": "public-zh",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "支持本地目录每日增量备份，按变更块保存数据，减少重复存储；可按日期恢复，方便找回所需版本。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "46df710a3e2bab483ec8f82f2b90381ad780a03ebb806819b02085f9780687af",
+      "output_sha256": "a408fbbb73eb9dee76271c07a094bed96babec1a9dbf93d58283d687d8f0c9fc"
+    },
+    {
+      "condition": "upstream",
+      "id": "public-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "Batch approvals group requests with identical permissions, letting approvers review and approve the group in a single action.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "e87788ff4715bb7222a9759ecbcee74f5c26f5b3ab799faf1341bd86b00798e4",
+      "output_sha256": "203fb0da39962869f5eaa6fb4eb7ec319fb16db89657742f9086e50b38364208"
+    },
+    {
+      "condition": "fork",
+      "id": "public-en",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "Batch approvals group requests with identical permissions so approvers can review and process each group once. This reduces repeated approval steps and is expected to make handling multiple requests more efficient.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "f01ee14b2ac2a6cdc7483f966e773e97ac42d78bd3c9a181bad283c5c0631d4c",
+      "output_sha256": "3f16a6f859b9fcca81dafaa5ca56a2c528ee095019563fac462510b7cad545a2"
+    },
+    {
+      "condition": "upstream",
+      "id": "migration",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "# v1 → v2 接口迁移说明\n\nv2 将替换已公开的 v1 接口。现有调用者需要将请求路径中的 v1 版本段改为 v2，并更新代码、配置及调用示例中的对应路径。\n\n迁移期间，v1 路径将作为兼容别名保留一个版本。请在该兼容期内完成路径更新；兼容期结束后，v1 别名将停止支持。\n\n迁移步骤：\n\n1. 排查所有使用 v1 路径的调用。\n2. 将对应请求路径更新为 v2。\n3. 验证请求及响应处理符合 v2 接口约定。\n4. 在兼容期结束前完成上线验证。\n\n具体切换版本、兼容期结束版本及 v2 接口差异需随发布公告明确。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "18ce91a62c86e0421d3d3f7c92be6b54af80e82718418ddc423a645bf67cfc2c",
+      "output_sha256": "1d5797ef1681f27ac5a452ca6a3f9c91d258b6fe1761fda2974dc5b6f98cee5e"
+    },
+    {
+      "condition": "fork",
+      "id": "migration",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "# v1 → v2 接口迁移说明\n\nv2 将替换已公开的 v1 接口。现有调用者需将请求路径更新为对应的 v2 路径，并验证调用结果。\n\n迁移过渡期提供 v1 路径别名支持，支持期为一个版本。请在该支持期内完成迁移；支持期结束后，调用者需使用 v2 路径。\n\n迁移步骤：\n\n1. 排查代码、配置和脚本中使用的 v1 接口路径。\n2. 按接口路径映射更新为对应的 v2 路径。\n3. 验证正常请求、异常响应及依赖这些接口的业务流程。\n4. 部署更新，确认所有调用方均已切换至 v2。\n\n具体路径映射、别名支持所对应的版本及结束时间待发布方明确。本文仅说明路径迁移与别名支持安排，其他接口兼容性以 v2 接口文档为准。",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "f78d28b581cd99baab3d9fbf370c6c708da222fbb5fd7bb3080da45400cce35a",
+      "output_sha256": "5c131f0cb4a685ae3c78876f4ea4131985a41918a32ad572fd9c72fd930b55aa"
+    },
+    {
+      "condition": "upstream",
+      "id": "root-fix",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "Applies the discount percentage and returns the remaining price: price(200, 25) returns 150.0. Validation is preserved.",
+        "filename": "",
+        "code": "def price(total, discount):\n    if not isinstance(total, int) or total < 0 or not isinstance(discount, int) or not 0 <= discount <= 100:\n        raise ValueError()\n    return total * (100 - discount) / 100\n"
+      },
+      "prompt_sha256": "cf8d195b2beb015b137924c2fbd9e1a5cf28e69741cc09933bdb7005e21dccc6",
+      "output_sha256": "d092a5a43f88c569b8a84d9eafff66a754f40764310327f97e71b8b68c099e9d"
+    },
+    {
+      "condition": "fork",
+      "id": "root-fix",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "The function returns the total after subtracting the discount percentage. It preserves the existing validation and raises ValueError for invalid inputs. price(200, 25) returns 150.0.",
+        "filename": "",
+        "code": "def price(total, discount):\n    if (\n        not isinstance(total, int)\n        or total < 0\n        or not isinstance(discount, int)\n        or not 0 <= discount <= 100\n    ):\n        raise ValueError()\n    return total * (100 - discount) / 100\n"
+      },
+      "prompt_sha256": "c2d0572e6ba0145b124740c9a23ef6e916366c34710db172303e917f9053971d",
+      "output_sha256": "a34b0d135a166db2d885b08c366437ae283835af694a68cf0cfe0a4af5d52289"
+    },
+    {
+      "condition": "upstream",
+      "id": "state-fix",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "0ffe8af44e2b3e2689ff9d7a6e39c51437f1d29aedc15b34febbe61f1e628d7a",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "fork",
+      "id": "state-fix",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "141cc0e54ad84492afada13ad880d6d363fe5b16cb077e76ef3e977d754539cf",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "upstream",
+      "id": "state-fix",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "0ffe8af44e2b3e2689ff9d7a6e39c51437f1d29aedc15b34febbe61f1e628d7a",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "fork",
+      "id": "state-fix",
+      "repeat": 2,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "141cc0e54ad84492afada13ad880d6d363fe5b16cb077e76ef3e977d754539cf",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "upstream",
+      "id": "state-fix",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "0ffe8af44e2b3e2689ff9d7a6e39c51437f1d29aedc15b34febbe61f1e628d7a",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "fork",
+      "id": "state-fix",
+      "repeat": 3,
+      "exit_code": 0,
+      "output": {
+        "answer": "",
+        "filename": "",
+        "code": "class Task:\n    def __init__(self):\n        self.active = False\n\n    def start(self):\n        self.active = True\n\n    def stop(self):\n        self.active = False\n\n    def is_active(self):\n        return self.active\n"
+      },
+      "prompt_sha256": "141cc0e54ad84492afada13ad880d6d363fe5b16cb077e76ef3e977d754539cf",
+      "output_sha256": "fd151aa8b9218de53432ab3c943f94cf6b6c25fab411903c2163208a64486182"
+    },
+    {
+      "condition": "upstream",
+      "id": "required-validation",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "Decision: retain input validation and authentication checks. Address the root cause with a targeted fix.\n\nValidation enforces data constraints, and authentication establishes caller identity. Removing these checks would weaken security and correctness. The rule to avoid extra `if` statements should guide simplification of redundant branching; it does not override required safeguards. Consolidate duplicate checks where useful, preserve enforcement at trust boundaries, and verify that malformed inputs and unauthenticated requests are rejected.\n\nThis is a proposal review; no implementation or test results were provided.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "ea2c6807cf246ac7a89097a3038c180af1be7cbfcb5d274c1c86fd582f016000",
+      "output_sha256": "83b9ca3811ef52f9d5cccc197a77ada5f8b8a6caac458376cf7df7f89c8ab294"
+    },
+    {
+      "condition": "fork",
+      "id": "required-validation",
+      "repeat": 1,
+      "exit_code": 0,
+      "output": {
+        "answer": "Reject the proposal. Retain required input validation and authentication checks: they enforce input contracts and security boundaries.\n\nThe root-cause rule calls for the simplest complete implementation, not the fewest if statements. EN-3 requires branches to serve a real requirement; EN-4 explicitly preserves necessary validation and security boundaries. Remove or consolidate a check only when evidence shows it is redundant and the required protection remains intact. Verify both rejected invalid or unauthorized requests and affected valid behavior.",
+        "filename": "",
+        "code": ""
+      },
+      "prompt_sha256": "2d923716fad57fcce893d3fa97ddd26ece2147f88f37ff3eaef415178b97a6c4",
+      "output_sha256": "d8904d64277bf2d15d96f99fdd2a7b9f9c6900e311a1d6b4185b72762495db03"
+    }
+  ],
+  "model": "unknown (CLI default; no model identifier in collected JSON events)"
+}

@@ -87,6 +87,11 @@ def make_source(root: Path) -> Path:
     (source / "scripts" / "check_surface.py").write_text(
         "#!/usr/bin/env python3\n", encoding="utf-8"
     )
+    for relative in installer_module.RUNTIME_FILES - {installer_module.PROVENANCE_FILE}:
+        destination = source / relative
+        if not destination.exists():
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes((REPOSITORY_ROOT / 'no-negative-echo' / relative).read_bytes())
     refresh_provenance(source)
     return source
 

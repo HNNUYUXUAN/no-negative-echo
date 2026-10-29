@@ -1,7 +1,17 @@
+# Fork installation
+
+## Source migration from LB623
+
+The fork has package identity `io.github.hnnuyuxuan.no-negative-echo`. An existing LB623 package is a separate source identity. Before migration, verify its provenance and every listed file against the recorded upstream baseline, and check for extra or user-modified files. Preserve conflicts for review.
+
+Move the verified old directory to a unique backup outside all skill-discovery directories. Install the fork into the now-vacant target using the pinned digest below. If installation fails, preserve any partial new directory for diagnosis and restore the saved upstream directory. Compare copied bytes after activation. To roll back later, preserve the fork outside discovery and restore the verified backup; open a fresh session.
+
+The same skill name remains available to callers. Never silently accept an unrelated same-name package.
+
 # Install no-negative-echo
 
 Install only the runtime Skill from
-<https://github.com/LB623/no-negative-echo>. Do not inspect, modify, or install
+<https://github.com/HNNUYUXUAN/no-negative-echo>. Do not inspect, modify, or install
 unrelated skills, packages, repositories, or host configuration.
 
 ## Default installation
@@ -29,7 +39,7 @@ Otherwise, use the bundled installer:
 
    ```bash
    python3 -I -B scripts/install_skill.py \
-     --expected-provenance-sha256 d42280b21f519ea00e417c68f31c68ca3d7faae607faf6dcb6e04beeff9c5ed6 \
+     --expected-provenance-sha256 41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f \
      --agent HOST_PRESET
    ```
 
@@ -57,7 +67,7 @@ For a custom destination, use only a documented Skill root for that host:
 
 ```bash
 python3 -I -B scripts/install_skill.py \
-  --expected-provenance-sha256 d42280b21f519ea00e417c68f31c68ca3d7faae607faf6dcb6e04beeff9c5ed6 \
+  --expected-provenance-sha256 41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f \
   --skills-dir /absolute/path/to/skills \
   --discovery-root /absolute/path/to/skills
 ```

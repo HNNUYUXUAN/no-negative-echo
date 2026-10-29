@@ -21,23 +21,29 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = REPOSITORY_ROOT / "no-negative-echo"
 SKILL_NAME = "no-negative-echo"
 PROVENANCE_FILE = Path(".no-negative-echo-provenance.json")
-PACKAGE_ID = "io.github.lb623.no-negative-echo"
-SOURCE_REPOSITORY = "https://github.com/LB623/no-negative-echo"
+PACKAGE_ID = "io.github.hnnuyuxuan.no-negative-echo"
+SOURCE_REPOSITORY = "https://github.com/HNNUYUXUAN/no-negative-echo"
 CURRENT_PROVENANCE_SHA256 = (
-    "d42280b21f519ea00e417c68f31c68ca3d7faae607faf6dcb6e04beeff9c5ed6"
+    "41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f"
 )
-RUNTIME_FILES = frozenset(
-    {
-        PROVENANCE_FILE,
-        Path("SKILL.md"),
-        Path("agents/openai.yaml"),
-        Path("assets/decision-boundary.png"),
-        Path("assets/icon-400.png"),
-        Path("assets/icon.png"),
-        Path("references/high-assurance-finalization.md"),
-        Path("scripts/check_surface.py"),
-    }
-)
+RUNTIME_FILES = frozenset({PROVENANCE_FILE,
+    Path('SKILL.md'),
+    Path('agents/openai.yaml'),
+    Path('assets/decision-boundary.png'),
+    Path('assets/icon-400.png'),
+    Path('assets/icon.png'),
+    Path('delivery.json'),
+    Path('references/en/collaboration.md'),
+    Path('references/en/engineering.md'),
+    Path('references/en/expression.md'),
+    Path('references/en/public-copy.md'),
+    Path('references/high-assurance-finalization.md'),
+    Path('references/zh-CN/collaboration.md'),
+    Path('references/zh-CN/engineering.md'),
+    Path('references/zh-CN/expression.md'),
+    Path('references/zh-CN/public-copy.md'),
+    Path('scripts/check_surface.py'),
+})
 PREVIOUS_PROVENANCE_RUNTIME_FILES: dict[str, frozenset[Path]] = {
     "9cc10a0f1d2d87f0de8517bf40c59e364783e2410308a0c8f815288f53a7cc47": frozenset(
         {

@@ -1,0 +1,50 @@
+[
+  {
+    "condition": "upstream",
+    "case": "root-fix",
+    "repeat": 1,
+    "assertions": "pass"
+  },
+  {
+    "condition": "fork",
+    "case": "root-fix",
+    "repeat": 1,
+    "assertions": "pass"
+  },
+  {
+    "condition": "upstream",
+    "case": "state-fix",
+    "repeat": 1,
+    "assertions": "pass"
+  },
+  {
+    "condition": "fork",
+    "case": "state-fix",
+    "repeat": 1,
+    "assertions": "pass"
+  },
+  {
+    "condition": "upstream",
+    "case": "state-fix",
+    "repeat": 2,
+    "assertions": "pass"
+  },
+  {
+    "condition": "fork",
+    "case": "state-fix",
+    "repeat": 2,
+    "assertions": "pass"
+  },
+  {
+    "condition": "upstream",
+    "case": "state-fix",
+    "repeat": 3,
+    "assertions": "pass"
+  },
+  {
+    "condition": "fork",
+    "case": "state-fix",
+    "repeat": 3,
+    "assertions": "pass"
+  }
+]

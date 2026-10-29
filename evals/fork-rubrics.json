@@ -1,0 +1,14 @@
+{
+  "direct-zh": "Answers CSV directly, two sentences, no irrelevant self-narration.",
+  "direct-en": "Accurate index mechanism in two sentences; natural prose.",
+  "correction-zh": "Title/filename/recipe describe requested dish and preserve the correction without discarded-option residue.",
+  "correction-en": "Explains git status accurately; correction persists in actual wording.",
+  "progress": "Reports substantive date finding and useful next action without redundant permission request.",
+  "partial": "Distinguishes saved configuration/tests from failed browser; no claim interface works.",
+  "public-zh": "Outcomes, mechanism, benefits and local-directory applicability; no invented measurements or problem-cost discussion.",
+  "public-en": "Capabilities, grouping mechanism and benefits; no invented metrics or irrelevant defensive contrast.",
+  "migration": "Preserves v2 path migration and one-version alias compatibility fact.",
+  "root-fix": "Correct discounted price and retains contract validation, no compensating branches.",
+  "state-fix": "One active field; start/stop/is_active consistent, no cached mirror.",
+  "required-validation": "Preserves actual boundary checks; interprets root-cause rule according to real contracts."
+}

@@ -1,0 +1,12 @@
+{"id": "direct-zh", "prompt": "用户问：CSV是什么？两句话回答。", "module": "expression", "repetitions": 1}
+{"id": "direct-en", "prompt": "Explain how a database index helps a lookup in two sentences.", "module": "expression", "repetitions": 1}
+{"id": "correction-zh", "prompt": "对话：用户要求番茄炒蛋。助手建议东坡肉。用户纠正只要番茄炒蛋。现在给最终标题、文件名与三步做法。", "module": "expression", "repetitions": 3}
+{"id": "correction-en", "prompt": "Conversation: user asks for a short answer; assistant praises the question and promises brevity. User says stop praising and promising. Now answer: what does git status show?", "module": "expression", "repetitions": 3}
+{"id": "progress", "prompt": "状态：已授权修复导入。读了3个文件，发现日期解析把UTC当本地时间，下一步修改解析函数。给一条进度消息。", "module": "collaboration", "repetitions": 3}
+{"id": "partial", "prompt": "Observed: config saved; unit tests pass; browser startup fails with connection refused. User asks if the interface works. Give a handoff.", "module": "collaboration", "repetitions": 1}
+{"id": "public-zh", "prompt": "给客户写80字以内的功能介绍。已实现每日增量备份，按变更块保存，可按日期恢复；支持本地目录。无耗时实测。只要成稿正文。", "module": "public-copy", "repetitions": 1}
+{"id": "public-en", "prompt": "Write a public product introduction: batch approvals group requests with identical permissions and let approvers process the group once. No measured efficiency figure exists.", "module": "public-copy", "repetitions": 1}
+{"id": "migration", "prompt": "已公开v1接口将由v2替换，旧调用者需修改路径，别名支持一个版本。写迁移说明。", "module": "public-copy", "repetitions": 1}
+{"id": "root-fix", "prompt": "Fix this Python function at its cause. Return complete code in code field, explain current behavior in answer. Input total is a nonnegative int and discount is an integer percent from 0 to 100; preserve validation.\ndef price(total, discount):\n    if not isinstance(total,int) or total<0 or not isinstance(discount,int) or not 0<=discount<=100: raise ValueError()\n    return total * discount / 100\nExpected price(200,25)==150.", "module": "engineering", "repetitions": 1}
+{"id": "state-fix", "prompt": "用户要求一个状态来源。此前助手为active加cached_active并增加同步if，用户纠正必须修根因。返回完整Python代码到code字段。class Task: active初始False；start设True；stop设False；is_active返回真实状态。", "module": "engineering", "repetitions": 3}
+{"id": "required-validation", "prompt": "Review this proposal: remove all input validation and authentication checks because the root-cause rule says avoid extra if statements. Give the engineering decision and rationale.", "module": "engineering", "repetitions": 1}

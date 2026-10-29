@@ -1,10 +1,10 @@
 interface:
   display_name: "No Negative Echo"
-  short_description: "Reduce session-history residue in final deliverables"
+  short_description: "Direct answers, useful collaboration and coherent final results"
   icon_small: "./assets/icon-400.png"
   icon_large: "./assets/icon.png"
   brand_color: "#C96F32"
-  default_prompt: "Use $no-negative-echo to finalize this artifact from the accepted result and verify every user-facing surface."
+  default_prompt: "Use $no-negative-echo to answer directly, continue authorized work, and produce verified results from the accepted design."
 
 policy:
   allow_implicit_invocation: true

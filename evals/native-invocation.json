@@ -1,0 +1,7 @@
+{
+  "explicit_invocation_requested": true,
+  "response_observed": true,
+  "activation_observed": null,
+  "reason": "No independent skill-loading event in collected CLI JSON",
+  "answer": "这款工具按权限要求对审批请求进行分组，将权限完全相同的请求归入同一组，每组统一处理一次，支持按组开展审批。"
+}
