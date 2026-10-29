@@ -1,6 +1,6 @@
 # Fork installation
 
-Runtime version: 2.1.0. For host paths and invocation, see [Harness integration](docs/en/harnesses.md) / [中文接入说明](docs/zh-CN/harnesses.md). For an existing fork installation, preserve a backup outside discovery before upgrading; see [Maintenance](docs/en/maintenance.md).
+Runtime version: 2.1.1. For host paths and invocation, see [Harness integration](docs/en/harnesses.md) / [中文接入说明](docs/zh-CN/harnesses.md). For an existing fork installation, preserve a backup outside discovery before upgrading; see [Maintenance](docs/en/maintenance.md).
 
 The complete runtime directory includes its MIT license and referenced modules. The installer uses only files in this checkout and the Python standard library. A retained checkout can be installed offline. An official host installer can also install the complete runtime directory without running this repository's Python installer.
 
@@ -43,7 +43,7 @@ Otherwise, use the bundled installer:
 
    ```bash
    python3 -I -B scripts/install_skill.py \
-     --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 \
+     --expected-provenance-sha256 010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7 \
      --agent HOST_PRESET
    ```
 
@@ -71,7 +71,7 @@ For a custom destination, use only a documented Skill root for that host:
 
 ```bash
 python3 -I -B scripts/install_skill.py \
-  --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 \
+  --expected-provenance-sha256 010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7 \
   --skills-dir /absolute/path/to/skills \
   --discovery-root /absolute/path/to/skills
 ```

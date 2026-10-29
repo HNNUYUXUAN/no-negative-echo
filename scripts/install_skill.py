@@ -24,7 +24,7 @@ PROVENANCE_FILE = Path(".no-negative-echo-provenance.json")
 PACKAGE_ID = "io.github.hnnuyuxuan.no-negative-echo"
 SOURCE_REPOSITORY = "https://github.com/HNNUYUXUAN/no-negative-echo"
 CURRENT_PROVENANCE_SHA256 = (
-    "7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714"
+    "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7"
 )
 RUNTIME_FILES = frozenset({PROVENANCE_FILE,
     Path('LICENSE'),
@@ -71,6 +71,12 @@ PREVIOUS_PROVENANCE_RUNTIME_FILES: dict[str, frozenset[Path]] = {
         }
     )
 }
+# v2.1.0 added LICENSE to the frozen v2.0.0 file set.
+PREVIOUS_PROVENANCE_RUNTIME_FILES[
+    "7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714"
+] = PREVIOUS_PROVENANCE_RUNTIME_FILES[
+    "41e324f77249235fc34c61388ceba3dd9230938bf19b14eb1af21c4f1eaddf4f"
+] | {Path("LICENSE")}
 # Preserve each prior published marker digest with its exact runtime shape.
 KNOWN_OFFICIAL_PROVENANCE_SHA256 = frozenset(
     {CURRENT_PROVENANCE_SHA256, *PREVIOUS_PROVENANCE_RUNTIME_FILES}

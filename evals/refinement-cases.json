@@ -1,0 +1,74 @@
+[
+  {
+    "id": "opening-1",
+    "prompt": "CSV 是什么？用两句话说明。",
+    "files": {},
+    "artifacts": []
+  },
+  {
+    "id": "opening-2",
+    "prompt": "CSV 是什么？用两句话说明。",
+    "files": {},
+    "artifacts": []
+  },
+  {
+    "id": "english-1",
+    "prompt": "Write a customer-facing introduction of 60–90 words: a request-review tool groups requests with identical permissions and lets an approver process each group once. Supports requests within one workspace. No measured time savings are available. Return the introduction.",
+    "files": {},
+    "artifacts": []
+  },
+  {
+    "id": "english-2",
+    "prompt": "Write a customer-facing introduction of 60–90 words: a request-review tool groups requests with identical permissions and lets an approver process each group once. Supports requests within one workspace. No measured time savings are available. Return the introduction.",
+    "files": {},
+    "artifacts": []
+  },
+  {
+    "id": "migration-1",
+    "prompt": "依据 notes.md 完成 release-notes.md 和 migration.md：前者给客户介绍当前能力，后者给旧版调用者说明迁移步骤。写入两个文件并检查必要信息是否保留。",
+    "files": {
+      "notes.md": "产品：BatchReview v2。可按相同权限组合批量审批请求，一次审批处理整个分组，仅支持同一工作区内的请求。v1 /review 接口改为 v2 /reviews/batch；旧路径别名在 v2.0 保留，到 v2.1 移除。调用方需更新请求路径；认证方式仍为 Bearer token。没有效率实测数字。此前讨论过逐条审批但当前已采用分组方案。\n"
+    },
+    "artifacts": [
+      "release-notes.md",
+      "migration.md"
+    ]
+  },
+  {
+    "id": "migration-2",
+    "prompt": "依据 notes.md 完成 release-notes.md 和 migration.md：前者给客户介绍当前能力，后者给旧版调用者说明迁移步骤。写入两个文件并检查必要信息是否保留。",
+    "files": {
+      "notes.md": "产品：BatchReview v2。可按相同权限组合批量审批请求，一次审批处理整个分组，仅支持同一工作区内的请求。v1 /review 接口改为 v2 /reviews/batch；旧路径别名在 v2.0 保留，到 v2.1 移除。调用方需更新请求路径；认证方式仍为 Bearer token。没有效率实测数字。此前讨论过逐条审批但当前已采用分组方案。\n"
+    },
+    "artifacts": [
+      "release-notes.md",
+      "migration.md"
+    ]
+  },
+  {
+    "id": "explicit-caller",
+    "prompt": "依据 notes.md 完成 release-notes.md 和 migration.md：前者给客户介绍当前能力，后者给旧版调用者说明迁移步骤。写入两个文件并检查必要信息是否保留。",
+    "files": {
+      "notes.md": "产品：BatchReview v2。可按相同权限组合批量审批请求，一次审批处理整个分组，仅支持同一工作区内的请求。v1 /review 接口改为 v2 /reviews/batch；旧路径别名在 v2.0 保留，到 v2.1 移除。调用方需更新请求路径；认证方式仍为 Bearer token。没有效率实测数字。此前讨论过逐条审批但当前已采用分组方案。\n接口约定：由调用方按工作区和完全相同的权限组合分组，再提交每个分组；服务端仅校验分组，不重新分组。\n"
+    },
+    "artifacts": [
+      "release-notes.md",
+      "migration.md"
+    ]
+  },
+  {
+    "id": "authorized-fix",
+    "prompt": "修复当前目录中订单折后金额计算错误。修改实现、同步 README 中的使用示例，运行现有测试，并用 orders.csv 实际生成 totals.csv。可以直接完成这些文件修改与验证。",
+    "files": {
+      "billing.py": "import csv\nimport sys\n\ndef net_cents(total_cents, discount_percent):\n    if type(total_cents) is not int or total_cents < 0:\n        raise ValueError(\"total_cents must be a nonnegative integer\")\n    if type(discount_percent) is not int or not 0 <= discount_percent <= 100:\n        raise ValueError(\"discount_percent must be an integer from 0 to 100\")\n    return total_cents * discount_percent // 100\n\ndef export(source, target):\n    with open(source, newline=\"\", encoding=\"utf-8\") as src, open(target, \"w\", newline=\"\", encoding=\"utf-8\") as dst:\n        rows = csv.DictReader(src)\n        out = csv.DictWriter(dst, fieldnames=[\"id\", \"net_cents\"])\n        out.writeheader()\n        for row in rows:\n            out.writerow({\"id\": row[\"id\"], \"net_cents\": net_cents(int(row[\"total_cents\"]), int(row[\"discount_percent\"]))})\n\nif __name__ == \"__main__\":\n    export(*sys.argv[1:])\n",
+      "test_billing.py": "import unittest\nfrom billing import net_cents\n\nclass BillingTest(unittest.TestCase):\n    def test_discount(self):\n        self.assertEqual(net_cents(20000,25),15000)\n        self.assertEqual(net_cents(20000,0),20000)\n        self.assertEqual(net_cents(20000,100),0)\n        self.assertEqual(net_cents(199,10),179)\n    def test_validation(self):\n        for a,b in [(-1,10),(100,101),(True,10),(100,False)]:\n            with self.assertRaises(ValueError): net_cents(a,b)\n",
+      "orders.csv": "id,total_cents,discount_percent\nA,20000,25\nB,12500,0\nC,9900,100\n",
+      "README.md": "# Order totals\n金额单位为分，折扣参数代表减免百分比；不足一分向下取整。\n调用：python billing.py orders.csv totals.csv\n示例：net_cents(20000, 25) == 5000\n"
+    },
+    "artifacts": [
+      "billing.py",
+      "README.md",
+      "totals.csv"
+    ]
+  }
+]

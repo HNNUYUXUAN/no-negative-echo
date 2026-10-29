@@ -1,5 +1,12 @@
 # Changelog / 版本记录
 
+## 2.1.1 — 2026-10-29
+
+- 开场规则前置到核心入口；必要技能告知与具体任务动作合并，过程消息提供实际任务信息。Entry-level opening guidance combines required skill notices with concrete task information.
+- 中英文表达与成稿规则逐句检查信息增量；结尾须提供具体后果、决策或行动。Sentence-level contribution checks consolidate repeated explanations; closing sentences contribute a concrete consequence, decision or action.
+- 迁移步骤依据明确的主体与责任；缺少责任归属时使用结果验收，保留已确认的调用方操作。Migration steps follow established responsibility, using outcome checks for unspecified actors and preserving documented caller actions.
+- 保留 2.1.0 升级识别，重新生成发布清单与 llms 全文。Retains v2.1.0 upgrade recognition and refreshes release metadata and the agent bundle.
+
 ## 2.1.0 — 2026-10-29
 
 - 宿主中立的 Agent Skills 入口；保留四组双语规则与 Codex 界面元数据。Host-neutral entry with the four bilingual rule groups and Codex UI metadata.

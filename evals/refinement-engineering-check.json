@@ -1,0 +1,21 @@
+{
+  "calculation_cases": 5,
+  "invalid_input_cases": 7,
+  "csv_rows": [
+    {
+      "id": "A",
+      "net_cents": "15000"
+    },
+    {
+      "id": "B",
+      "net_cents": "12500"
+    },
+    {
+      "id": "C",
+      "net_cents": "0"
+    }
+  ],
+  "readme_example": 15000,
+  "existing_tests": "test_discount (test_billing.BillingTest.test_discount) ... ok\ntest_validation (test_billing.BillingTest.test_validation) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+  "status": "pass"
+}

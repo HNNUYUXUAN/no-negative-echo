@@ -4,7 +4,7 @@
 
 No Negative Echo 是一套可跨 agent harness 使用的双语技能，提供自然表达、持续协作、对外成稿和根因修复四组规则。它把用户已确认的需求、当前实现和验收证据作为共同依据，帮助回答、代码、文档与提交说明表达同一套设计。
 
-**版本 2.1.0** · [English](README_EN.md) · [安装](INSTALL.md) · [使用说明](docs/zh-CN/usage.md) · [Agent 阅读入口](llms.txt)
+**版本 2.1.1** · [English](README_EN.md) · [安装](INSTALL.md) · [使用说明](docs/zh-CN/usage.md) · [Agent 阅读入口](llms.txt)
 
 通过标准 `SKILL.md` 入口与按需模块复用同一套规则；提供 Codex、Claude Code、Cursor、Gemini CLI、Copilot CLI 和 OpenCode 的接入路径。完整运行包可本地保存，日常指令只需宿主读取文本。各宿主的接入方法与验证状态见[兼容说明](docs/zh-CN/harnesses.md)。
 
@@ -79,7 +79,7 @@ No Negative Echo 是一套可跨 agent harness 使用的双语技能，提供自
 ```bash
 git clone https://github.com/HNNUYUXUAN/no-negative-echo.git
 cd no-negative-echo
-python -I -B scripts/install_skill.py --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 --agent codex
+python -I -B scripts/install_skill.py --expected-provenance-sha256 010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7 --agent codex
 ```
 
 安装器校验来源清单和文件内容，将完整技能放入所选目录。其他预设为 `claude`、`cursor`、`gemini` 和 `copilot`，将命令中的 `codex` 替换为对应值即可。已有共享安装时先按[兼容说明](docs/zh-CN/harnesses.md)确认生效位置。安装或更新后按宿主方式重新加载，再完成一个[使用样例](docs/zh-CN/usage.md)。

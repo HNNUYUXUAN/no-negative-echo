@@ -7,18 +7,18 @@
     "assets/decision-boundary.png": "3c80021dc245b4a3fe02a18434fc200fae0db3810c8fd451acc25bfb2e831d7a",
     "assets/icon-400.png": "9ba3b39b106a1f6b6a376a4ccf91373e8f80923d87ca244892c35c7f95a1a121",
     "assets/icon.png": "052b7bf0101ab53cbfe2a909155d36df7554acbfbefeefbe94f00e5cf2e74b74",
-    "delivery.json": "0a6be25892812cd7b62d6d862b50d477582080eb3852a76203d15baa7c42efce",
+    "delivery.json": "62efd9edb69d4ccfa3425cb332f65ff2b78b7cba3ff6ce4c0cc182d3c22ad4ca",
     "LICENSE": "49f90d79b088ae3836e6c97dc805143015762acc0e6975f75d18c2316dabc221",
-    "references/en/collaboration.md": "7c609f4f0661dc48b957041fcf2df93b390bed395c3bdff3566bfaaaef8aac45",
+    "references/en/collaboration.md": "fe347f8bf5a60f5af03d29f0d487b8014c5f90cf43f14f03f89614b296545ec8",
     "references/en/engineering.md": "419a6f814dfd2c5fc68269e532d42296ee8a73e2afe6e4f8af7831ae26debd24",
-    "references/en/expression.md": "e5416102c07e2cfb24e491d01ad8911191298823fdc184262d3e8654b1c5b5e1",
-    "references/en/public-copy.md": "6c0ee39455bd72d7923f8aa3a7b5663615511c81127b42e6b9ab070ed5e9bcc2",
+    "references/en/expression.md": "2b5f843b15c4d9ae54a73f4181ba16e5cb221e839e9943316972096244b06991",
+    "references/en/public-copy.md": "7e26d58d6a0f3068472c7fe63c380e2f339a4b2b7b90414eda204daad9e909a0",
     "references/high-assurance-finalization.md": "63e0e888249a008937abb06162623f4f5434b99733e673445e86cd7bbcb48d1a",
-    "references/zh-CN/collaboration.md": "250e7f22a5c79a03d372fd8b0616bd4a972287407d62fa3f530139c67cfca679",
+    "references/zh-CN/collaboration.md": "ce4829cb69fade780cf5ecf309d1d9407f93ccb697faa686e59517fbc33971fe",
     "references/zh-CN/engineering.md": "901526cf2335be29d55a90a55fb8c6abc3a2c6a46efd4cb849890b7abf9f4211",
-    "references/zh-CN/expression.md": "ca881a12ed523ebbe83dd59d2a18aed1c2c06d54dc073ebb7636511c7c136f45",
-    "references/zh-CN/public-copy.md": "d2e56aebd25abe55737dfca01e75831b932eb373162330e155c30d63e412b342",
+    "references/zh-CN/expression.md": "f5aa6431c38096f0b4bfbbe68972805d9e435cd5c42347c95dd549b417445f10",
+    "references/zh-CN/public-copy.md": "5cb05b7e7fa1319c593bf8e9d6d54bb9c946546c5706dc115d88533f38105439",
     "scripts/check_surface.py": "d63a03fb1052706e1e5d1b23d413251dff5690e0c3e837c069826de6fe06661b",
-    "SKILL.md": "66e8bcffb349c5d6e3bdb5afc2314c7f1f26a724079e7478f2141cb7fa020aa0"
+    "SKILL.md": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6"
   }
 }

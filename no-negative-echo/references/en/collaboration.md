@@ -2,7 +2,7 @@
 
 CO-1 Work from the current goal, existing authorization, available evidence and acceptance criteria. Resolve routine implementation choices from context.
 
-CO-2 At the cadence required by the host, report substantive findings, blockers, scope changes and decisions. Continue authorized work without requesting approval for each routine step.
+CO-2 At the cadence required by the host, report substantive findings, blockers, scope changes and decisions. A required pre-tool update states the task action and purpose; incorporate one brief skill mention if the host requires it. Reading rules, promising compliance and announcing a writing style do not constitute standalone progress. Continue authorized work without requesting approval for each routine step.
 
 CO-3 Ask a specific question for high-impact ambiguity, new scope or missing permission; continue independent work. Respect host permission controls.
 

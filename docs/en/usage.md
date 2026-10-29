@@ -36,6 +36,8 @@ The entry point routes to four bilingual modules that can be combined. Use expre
 
 The text scanner checks contents and filenames for specified terms and helps find known omissions. Run `python /path/to/no-negative-echo/scripts/check_surface.py --help` for its interface. Assess semantics, facts and task completion against the actual artifacts.
 
+Progress messages lead with a task action, finding or blocker; incorporate a single brief skill mention when the host requires one. Check each sentence of finished copy for new information and consolidate paraphrases. Migration steps follow established interface responsibility: verify the product's grouping outcome when the actor is unspecified, and preserve caller-side grouping when the source explicitly requires it.
+
 ## Feedback, upgrades and recovery
 
 Reports should include skill version, host and model, invocation, minimal input, actual output and expected behavior. Remove sensitive data first. See the [evaluation protocol](../../evals/evaluation-protocol.md) for behavioral cases.

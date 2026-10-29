@@ -4,7 +4,7 @@
 
 No Negative Echo is a portable bilingual skill for agent harnesses, with four sets of rules: natural expression, ongoing collaboration, public-facing writing and root-cause repairs. It uses accepted requirements, the current implementation and verification evidence as a shared basis for answers, code, documentation and commit descriptions.
 
-**Version 2.1.0** · [中文](README.md) · [Installation](INSTALL.md) · [Usage](docs/en/usage.md) · [Agent reading index](llms.txt)
+**Version 2.1.1** · [中文](README.md) · [Installation](INSTALL.md) · [Usage](docs/en/usage.md) · [Agent reading index](llms.txt)
 
 A standard `SKILL.md` entry and on-demand modules make the same rules reusable across hosts. Integration paths cover Codex, Claude Code, Cursor, Gemini CLI, Copilot CLI and OpenCode. Keep the complete runtime locally; daily use needs only a host that reads text. See the [integration guide](docs/en/harnesses.md) for host-specific methods and validation status.
 
@@ -80,7 +80,7 @@ With Git, Python 3.10+ and a target host available, run this Codex example:
 ```bash
 git clone https://github.com/HNNUYUXUAN/no-negative-echo.git
 cd no-negative-echo
-python -I -B scripts/install_skill.py --expected-provenance-sha256 7f5afc287bf98e3d52cdb33c934ed9385c800aa96276600b1cfc6a0967bff714 --agent codex
+python -I -B scripts/install_skill.py --expected-provenance-sha256 010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7 --agent codex
 ```
 
 The installer verifies provenance and file contents, then places the complete package in the selected directory. Other presets are `claude`, `cursor`, `gemini` and `copilot`: replace `codex` in the command accordingly. For existing shared installations, first confirm the effective location using the [integration guide](docs/en/harnesses.md). Reload through the host after installation or upgrade, then complete a [usage example](docs/en/usage.md).

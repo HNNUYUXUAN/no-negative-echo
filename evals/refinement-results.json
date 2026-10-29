@@ -1,0 +1,507 @@
+{
+  "date": "2026-10-29",
+  "version": "2.1.1",
+  "environment": "Windows x64; Codex CLI 0.165.0-alpha.1.2; existing default gpt-6-astra",
+  "review_method": "Manual semantic review of all messages and actual files against refinement-protocol.md; independent engineering checks.",
+  "initial_candidate_failure": {
+    "id": "english-1",
+    "exit_code": 0,
+    "seconds": 102.0,
+    "models": [
+      "gpt-6-astra"
+    ],
+    "native_entry_matches_candidate": true,
+    "skill_sha256": "4877223a3764ae5ec6a70401ad0b5f0a30a1dd50729cb17c33a03bc996999a95",
+    "modules_read": [],
+    "command_exit_codes": [],
+    "messages": [
+      "I’m using no-negative-echo to draft the introduction around grouped approvals within one workspace.\n",
+      "Bring matching permission requests together with a request-review tool designed for a single workspace. Requests with identical permissions form a group that an approver can process once. For example, three requests for the same permissions can be handled as one group. This approach organizes review around the permissions being requested and gives approvers a straightforward way to handle matching requests together."
+    ],
+    "answer": "Bring matching permission requests together with a request-review tool designed for a single workspace. Requests with identical permissions form a group that an approver can process once. For example, three requests for the same permissions can be handled as one group. This approach organizes review around the permissions being requested and gives approvers a straightforward way to handle matching requests together.",
+    "artifacts": {},
+    "word_count_whitespace": 61,
+    "manual_review": "fail: final sentence restates grouping with no distinct contribution"
+  },
+  "environment_blocked_attempt": {
+    "id": "authorized-fix",
+    "exit_code": 0,
+    "seconds": 166.3,
+    "models": [
+      "gpt-6-astra"
+    ],
+    "native_entry_matches_candidate": true,
+    "version": "2.1.1",
+    "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+    "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+    "modules_read": [
+      "CO-1",
+      "EN-1",
+      "EX-1",
+      "PC-1"
+    ],
+    "command_exit_codes": [],
+    "messages": [
+      "我会使用 no-negative-echo 技能，检查折后金额计算和现有测试，修复实现与 README 示例，再用 orders.csv 生成并核验 totals.csv。\n",
+      "终端在启动时遇到 Windows 沙箱配置错误。我先检查可用的文件读取通道，继续定位计算问题；测试运行情况会单独核实。\n",
+      "已定位原因：实现把减免比例直接用于计算返回金额。折后金额应按 `总金额 × (100 − 减免百分比) // 100` 计算，README 示例应为 `15000`。现有测试已覆盖普通折扣、零折扣、全额减免、舍入和输入校验。\n",
+      "已修复 `billing.py`：折后金额按 `total_cents * (100 - discount_percent) // 100` 计算；README 示例已同步为 `15000`。\n\n测试和实际导出被 Windows 沙箱启动错误阻断（只读目录内的可写子目录配置冲突），因此 **totals.csv 尚未生成**。待运行的命令为：\n\n```bash\npython -m unittest -v\npython billing.py orders.csv totals.csv\n```"
+    ],
+    "answer": "已修复 `billing.py`：折后金额按 `total_cents * (100 - discount_percent) // 100` 计算；README 示例已同步为 `15000`。\n\n测试和实际导出被 Windows 沙箱启动错误阻断（只读目录内的可写子目录配置冲突），因此 **totals.csv 尚未生成**。待运行的命令为：\n\n```bash\npython -m unittest -v\npython billing.py orders.csv totals.csv\n```",
+    "artifacts": {
+      "billing.py": "import csv\nimport sys\n\ndef net_cents(total_cents, discount_percent):\n    if type(total_cents) is not int or total_cents < 0:\n        raise ValueError(\"total_cents must be a nonnegative integer\")\n    if type(discount_percent) is not int or not 0 <= discount_percent <= 100:\n        raise ValueError(\"discount_percent must be an integer from 0 to 100\")\n    return total_cents * (100 - discount_percent) // 100\n\ndef export(source, target):\n    with open(source, newline=\"\", encoding=\"utf-8\") as src, open(target, \"w\", newline=\"\", encoding=\"utf-8\") as dst:\n        rows = csv.DictReader(src)\n        out = csv.DictWriter(dst, fieldnames=[\"id\", \"net_cents\"])\n        out.writeheader()\n        for row in rows:\n            out.writerow({\"id\": row[\"id\"], \"net_cents\": net_cents(int(row[\"total_cents\"]), int(row[\"discount_percent\"]))})\n\nif __name__ == \"__main__\":\n    export(*sys.argv[1:])\n",
+      "README.md": "# Order totals\n金额单位为分，折扣参数代表减免百分比；不足一分向下取整。\n调用：python billing.py orders.csv totals.csv\n示例：net_cents(20000, 25) == 15000\n"
+    },
+    "manual_review": "incomplete: code and README fixed; Windows sandbox configuration blocked tests and CSV export; completion reported accurately"
+  },
+  "intermediate_candidate": [
+    {
+      "id": "english-1",
+      "exit_code": 0,
+      "seconds": 90.9,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "I’m using the no-negative-echo skill to draft the introduction around grouped approvals within one workspace.\n",
+        "Bring matching requests together for review within a single workspace. This tool groups requests with identical permissions and lets an approver process each group once. For example, ten requests sharing the same permission set can be handled as one group; requests with a different set belong in a separate group. This approach reduces repeated processing of matching requests and keeps review organized by permissions."
+      ],
+      "answer": "Bring matching requests together for review within a single workspace. This tool groups requests with identical permissions and lets an approver process each group once. For example, ten requests sharing the same permission set can be handled as one group; requests with a different set belong in a separate group. This approach reduces repeated processing of matching requests and keeps review organized by permissions.",
+      "artifacts": {},
+      "word_count_whitespace": 64,
+      "manual_review": "pass"
+    },
+    {
+      "id": "opening-1",
+      "exit_code": 0,
+      "seconds": 54.8,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [],
+      "command_exit_codes": [],
+      "messages": [
+        "本次使用 no-negative-echo 技能，说明 CSV 的含义和用途。\n",
+        "CSV（Comma-Separated Values，逗号分隔值）是一种用纯文本保存表格数据的文件格式，通常每行表示一条记录，字段之间用逗号分隔。它常用于不同软件之间导入和导出数据，可以用 Excel、文本编辑器或程序读取。"
+      ],
+      "answer": "CSV（Comma-Separated Values，逗号分隔值）是一种用纯文本保存表格数据的文件格式，通常每行表示一条记录，字段之间用逗号分隔。它常用于不同软件之间导入和导出数据，可以用 Excel、文本编辑器或程序读取。",
+      "artifacts": {},
+      "manual_review": "pass"
+    },
+    {
+      "id": "opening-2",
+      "exit_code": 0,
+      "seconds": 69.7,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "EX-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "使用 no-negative-echo 技能，说明 CSV 的结构与用途。\n",
+        "CSV（逗号分隔值）是一种用纯文本保存表格数据的文件格式，通常每行表示一条记录，各字段用逗号分隔。它常用于在 Excel、数据库和程序之间导入、导出数据，也可以用文本编辑器打开。"
+      ],
+      "answer": "CSV（逗号分隔值）是一种用纯文本保存表格数据的文件格式，通常每行表示一条记录，各字段用逗号分隔。它常用于在 Excel、数据库和程序之间导入、导出数据，也可以用文本编辑器打开。",
+      "artifacts": {},
+      "manual_review": "pass"
+    },
+    {
+      "id": "english-2",
+      "exit_code": 0,
+      "seconds": 113.5,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "I’ll use the no-negative-echo skill to draft the introduction around grouped approvals within one workspace.\n",
+        "Bring structure to request reviews within a single workspace. The tool groups requests with identical permissions, allowing an approver to process each group once. For example, five requests that share the same permission set can be handled as one group, while requests with a different set form another. Grouping by permissions reduces repeated processing and gives approvers a clear unit of review."
+      ],
+      "answer": "Bring structure to request reviews within a single workspace. The tool groups requests with identical permissions, allowing an approver to process each group once. For example, five requests that share the same permission set can be handled as one group, while requests with a different set form another. Grouping by permissions reduces repeated processing and gives approvers a clear unit of review.",
+      "artifacts": {},
+      "word_count_whitespace": 62,
+      "manual_review": "pass"
+    },
+    {
+      "id": "migration-1",
+      "exit_code": 0,
+      "seconds": 124.2,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "CO-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "我会使用 no-negative-echo 技能，先读取 notes.md，分别整理面向客户的能力介绍和面向旧版调用者的迁移步骤，再核对必要信息是否完整保留。\n",
+        "notes.md 明确了分组审批机制、同一工作区的适用范围，以及旧路径在 v2.0 保留、v2.1 移除的兼容窗口。迁移文档会保留这些信息和 Bearer token 认证方式，并将分组行为写成验收条件；材料未指定由谁执行分组。\n",
+        "已写入并回读核对：\n\n- [release-notes.md](release-notes.md)：介绍当前分组审批能力和同一工作区的适用范围。\n- [migration.md](migration.md)：说明路径更新、v2.0 保留旧别名、v2.1 移除，以及 Bearer token 认证和迁移验收步骤。\n\n必要信息已完整保留。"
+      ],
+      "answer": "已写入并回读核对：\n\n- [release-notes.md](release-notes.md)：介绍当前分组审批能力和同一工作区的适用范围。\n- [migration.md](migration.md)：说明路径更新、v2.0 保留旧别名、v2.1 移除，以及 Bearer token 认证和迁移验收步骤。\n\n必要信息已完整保留。",
+      "artifacts": {
+        "release-notes.md": "# BatchReview v2 发布说明\n\nBatchReview v2 支持按相同权限组合批量审批请求，一次审批即可处理整个分组。该能力仅适用于同一工作区内的请求。\n\n当前批量审批接口路径为 `/reviews/batch`，认证方式为 Bearer token。\n\n旧版调用者请参阅[迁移指南](migration.md)，了解路径更新步骤及兼容期限。\n",
+        "migration.md": "# BatchReview v2 迁移指南\n\n使用 v1 `/review` 接口的调用方，请按以下步骤迁移到 v2 批量审批接口。\n\n1. **更新请求路径。** 将 `/review` 替换为 `/reviews/batch`。旧路径别名在 v2.0 保留，到 v2.1 移除；请在升级至 v2.1 前完成路径更新。\n2. **保留认证方式。** 继续使用 Bearer token 认证。\n3. **核对审批行为。** 确认参与批量审批的请求位于同一工作区，按相同权限组合分组，且一次审批处理整个分组。\n"
+      },
+      "manual_review": "pass"
+    },
+    {
+      "id": "migration-2",
+      "exit_code": 0,
+      "seconds": 99.0,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "CO-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "我会使用 no-negative-echo 技能，先读取 notes.md，再分别编写客户版能力介绍和旧版调用者迁移指南，并核对必要信息。\n",
+        "已确认批量审批仅适用于同一工作区。迁移指南会保留路径变更、v2.0 兼容期、v2.1 移除旧别名及 Bearer token 认证，并将分组行为列为验收项。\n",
+        "已写入并完整回读核对：\n\n- [release-notes.md](/<task>/release-notes.md)：客户版当前能力介绍。\n- [migration.md](/<task>/migration.md)：迁移步骤、兼容期限和验收清单。\n\n已保留相同权限组合、整组审批、同一工作区限制、路径变更、v2.0 保留旧别名、v2.1 移除及 Bearer token 认证等必要信息。"
+      ],
+      "answer": "已写入并完整回读核对：\n\n- [release-notes.md](/<task>/release-notes.md)：客户版当前能力介绍。\n- [migration.md](/<task>/migration.md)：迁移步骤、兼容期限和验收清单。\n\n已保留相同权限组合、整组审批、同一工作区限制、路径变更、v2.0 保留旧别名、v2.1 移除及 Bearer token 认证等必要信息。",
+      "artifacts": {
+        "release-notes.md": "# BatchReview v2 发布说明\n\nBatchReview v2 支持按相同权限组合批量审批请求，一次审批即可处理整个分组。该能力仅支持同一工作区内的请求。\n\n调用入口为 `/reviews/batch`，认证方式为 Bearer token。旧版调用者可参阅[迁移指南](migration.md)，了解路径更新步骤和兼容期限。\n",
+        "migration.md": "# BatchReview v2 迁移指南\n\n本指南面向使用 v1 `/review` 接口的调用方。v2 的批量审批入口为 `/reviews/batch`。\n\n## 兼容期限\n\n旧路径 `/review` 的别名在 v2.0 保留，到 v2.1 移除。请在升级至 v2.1 前完成请求路径更新。\n\n## 迁移步骤\n\n1. 将调用请求的路径从 `/review` 更新为 `/reviews/batch`。\n2. 继续使用 Bearer token 认证，认证方式保持不变。\n3. 核对请求范围和审批结果：请求均属于同一工作区，审批按相同权限组合分组，一次审批处理整个分组。\n\n## 验收清单\n\n- [ ] 实际调用使用 `/reviews/batch` 路径。\n- [ ] Bearer token 认证通过。\n- [ ] 请求范围限定在同一工作区内。\n- [ ] 分组结果符合相同权限组合的规则，且一次审批处理整个分组。\n"
+      },
+      "manual_review": "pass"
+    },
+    {
+      "id": "explicit-caller",
+      "exit_code": 0,
+      "seconds": 120.5,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "CO-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [],
+      "messages": [
+        "我会使用 no-negative-echo，依据 notes.md 分别编写客户版能力介绍和旧版调用者迁移指南，并核对必要信息的保留情况。\n",
+        "已写入并回读核对：\n\n- [release-notes.md](release-notes.md)：面向客户介绍当前能力、适用范围和接口。\n- [migration.md](migration.md)：说明路径切换、调用方分组、逐组提交及验证步骤。\n\n必要信息均已保留，包括服务端仅校验分组、Bearer token 认证，以及旧路径在 v2.0 保留、v2.1 移除的兼容安排。"
+      ],
+      "answer": "已写入并回读核对：\n\n- [release-notes.md](release-notes.md)：面向客户介绍当前能力、适用范围和接口。\n- [migration.md](migration.md)：说明路径切换、调用方分组、逐组提交及验证步骤。\n\n必要信息均已保留，包括服务端仅校验分组、Bearer token 认证，以及旧路径在 v2.0 保留、v2.1 移除的兼容安排。",
+      "artifacts": {
+        "release-notes.md": "# BatchReview v2 发布说明\n\nBatchReview v2 支持按权限组合批量审批请求，一次审批即可处理整个分组。\n\n每个分组中的请求须属于同一工作区，且权限组合完全相同。调用方按这两个条件完成分组后，分别提交每个分组；服务端仅校验分组，不重新分组。\n\n当前接口为 `/reviews/batch`，认证使用 Bearer token。使用旧版接口的调用方可参阅[迁移指南](migration.md)，完成路径和请求分组方式的更新。\n",
+        "migration.md": "# BatchReview v2 迁移指南\n\n本指南适用于使用 BatchReview v1 `/review` 接口的调用方。\n\n1. **更新请求路径。** 将 `/review` 改为 `/reviews/batch`。旧路径别名在 v2.0 中保留，到 v2.1 移除；请在升级至 v2.1 前完成路径切换。\n2. **在调用方完成分组。** 先按工作区和完全相同的权限组合划分请求，确保每个分组内的请求属于同一工作区，且权限组合完全相同。\n3. **逐组提交请求。** 将每个分组分别提交到 `/reviews/batch`，继续使用 Bearer token 认证。服务端仅校验提交的分组，不重新分组；一次审批处理整个分组。\n4. **核对迁移结果。** 确认实际请求使用 `/reviews/batch`，Bearer token 认证正常，每次提交的分组满足工作区与权限组合要求，并验证一次审批能够处理整个分组。\n"
+      },
+      "manual_review": "pass"
+    },
+    {
+      "id": "authorized-fix",
+      "exit_code": 0,
+      "seconds": 79.1,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "CO-1",
+        "EN-1",
+        "EX-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "messages": [
+        "我会使用 no-negative-echo 技能，检查折后金额的计算逻辑，修复实现并同步 README 示例，再运行现有测试，用 orders.csv 生成 totals.csv。\n",
+        "已复现测试失败：计算函数返回了减免金额。折后金额应按“原金额 ×（100 − 减免百分比）÷ 100”计算，并向下取整到分；现有测试已覆盖零折扣、全额减免、取整和输入校验。\n",
+        "已修复折后金额公式为 `total_cents * (100 - discount_percent) // 100`，README 示例已同步为 `15000`。\n\n现有 2 项测试全部通过。已实际运行 `python billing.py orders.csv totals.csv`，生成并核对 totals.csv：A 为 15000 分，B 为 12500 分，C 为 0 分。"
+      ],
+      "answer": "已修复折后金额公式为 `total_cents * (100 - discount_percent) // 100`，README 示例已同步为 `15000`。\n\n现有 2 项测试全部通过。已实际运行 `python billing.py orders.csv totals.csv`，生成并核对 totals.csv：A 为 15000 分，B 为 12500 分，C 为 0 分。",
+      "artifacts": {
+        "billing.py": "import csv\nimport sys\n\ndef net_cents(total_cents, discount_percent):\n    if type(total_cents) is not int or total_cents < 0:\n        raise ValueError(\"total_cents must be a nonnegative integer\")\n    if type(discount_percent) is not int or not 0 <= discount_percent <= 100:\n        raise ValueError(\"discount_percent must be an integer from 0 to 100\")\n    return total_cents * (100 - discount_percent) // 100\n\ndef export(source, target):\n    with open(source, newline=\"\", encoding=\"utf-8\") as src, open(target, \"w\", newline=\"\", encoding=\"utf-8\") as dst:\n        rows = csv.DictReader(src)\n        out = csv.DictWriter(dst, fieldnames=[\"id\", \"net_cents\"])\n        out.writeheader()\n        for row in rows:\n            out.writerow({\"id\": row[\"id\"], \"net_cents\": net_cents(int(row[\"total_cents\"]), int(row[\"discount_percent\"]))})\n\nif __name__ == \"__main__\":\n    export(*sys.argv[1:])\n",
+        "README.md": "# Order totals\n金额单位为分，折扣参数代表减免百分比；不足一分向下取整。\n调用：python billing.py orders.csv totals.csv\n示例：net_cents(20000, 25) == 15000\n",
+        "totals.csv": "id,net_cents\nA,15000\nB,12500\nC,0\n"
+      },
+      "manual_review": "pass"
+    }
+  ],
+  "intermediate_installed": [
+    {
+      "id": "opening-1",
+      "exit_code": 0,
+      "seconds": 32.2,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "EX-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "CSV 用来保存表格数据；本次说明采用 no-negative-echo 技能。\n",
+        "CSV（逗号分隔值）是一种保存表格数据的纯文本格式，通常每行表示一条记录，字段之间用逗号分隔。它可以用 Excel 或文本编辑器打开，常用于不同软件之间导入和导出数据。"
+      ],
+      "answer": "CSV（逗号分隔值）是一种保存表格数据的纯文本格式，通常每行表示一条记录，字段之间用逗号分隔。它可以用 Excel 或文本编辑器打开，常用于不同软件之间导入和导出数据。",
+      "artifacts": {},
+      "manual_review": "pass"
+    },
+    {
+      "id": "english-1",
+      "exit_code": 0,
+      "seconds": 104.3,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "I’m using no-negative-echo to draft the introduction around grouped reviews within one workspace.\n",
+        "Review requests by their shared permissions. Within a single workspace, this request-review tool groups requests that have identical permissions and lets an approver process each group once. For example, five requests with the same permission set can be handled as one group; a request with a different set is grouped separately. This gives approvers a way to organize their review around the permissions being requested."
+      ],
+      "answer": "Review requests by their shared permissions. Within a single workspace, this request-review tool groups requests that have identical permissions and lets an approver process each group once. For example, five requests with the same permission set can be handled as one group; a request with a different set is grouped separately. This gives approvers a way to organize their review around the permissions being requested.",
+      "artifacts": {},
+      "word_count_whitespace": 65,
+      "manual_review": "fail: final sentence repeats organizing reviews by permissions"
+    },
+    {
+      "id": "migration-1",
+      "exit_code": 0,
+      "seconds": 101.5,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "4719019c824f916b0fa24af1519376da56bddb1532868e9140a374063d4657de",
+      "skill_sha256": "fe57c483bbc5b0aebe3d373655466eda257e7f4cc8d9a3c6dd6d7b89bbd5472f",
+      "modules_read": [
+        "CO-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "messages": [
+        "我会使用 no-negative-echo 技能，依据 notes.md 分别编写客户版能力说明和旧版调用者迁移指南，并核对必要信息是否完整保留。\n",
+        "已写入并核对：\n\n- [release-notes.md](<task>/release-notes.md)：介绍当前能力与适用范围。\n- [migration.md](<task>/migration.md)：说明路径更新、认证方式及迁移验收步骤。\n\n分组审批、同一工作区限制、旧路径在 v2.0 保留及 v2.1 移除等必要信息均已保留。"
+      ],
+      "answer": "已写入并核对：\n\n- [release-notes.md](<task>/release-notes.md)：介绍当前能力与适用范围。\n- [migration.md](<task>/migration.md)：说明路径更新、认证方式及迁移验收步骤。\n\n分组审批、同一工作区限制、旧路径在 v2.0 保留及 v2.1 移除等必要信息均已保留。",
+      "artifacts": {
+        "release-notes.md": "# BatchReview v2 发布说明\n\nBatchReview v2 支持按相同权限组合批量审批请求，一次审批即可处理整个分组。批量审批仅支持同一工作区内的请求。\n\n批量审批接口为 `/reviews/batch`，使用 Bearer token 认证。\n",
+        "migration.md": "# BatchReview v2 迁移指南\n\n本指南适用于使用 v1 `/review` 接口的调用方。旧路径 `/review` 的别名在 v2.0 保留，到 v2.1 移除；请在升级至 v2.1 前完成路径更新。\n\n1. 将请求路径从 `/review` 更新为 `/reviews/batch`，使用 v2 批量审批接口。\n2. 继续使用 Bearer token 认证，认证方式保持不变。\n3. 核对批量审批的适用范围和处理结果：请求来自同一工作区，分组内请求具有相同权限组合，一次审批处理整个分组。\n"
+      },
+      "manual_review": "pass"
+    }
+  ],
+  "final_candidate_affected_cases": [
+    {
+      "id": "english-1",
+      "exit_code": 0,
+      "seconds": 107.2,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+      "skill_sha256": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "I’ll use no-negative-echo to draft the introduction around grouped reviews and support for a single workspace.\n",
+        "Make permission requests easier to review with a workflow organized around the access being requested. Within a single workspace, this request-review tool groups requests with identical permissions and lets an approver process each group once, reducing repeated handling of the same permission set. Requests with different permissions form separate groups, so approvers can consider each distinct set of access requirements separately."
+      ],
+      "answer": "Make permission requests easier to review with a workflow organized around the access being requested. Within a single workspace, this request-review tool groups requests with identical permissions and lets an approver process each group once, reducing repeated handling of the same permission set. Requests with different permissions form separate groups, so approvers can consider each distinct set of access requirements separately.",
+      "artifacts": {},
+      "word_count_whitespace": 61,
+      "manual_review": "pass"
+    },
+    {
+      "id": "english-2",
+      "exit_code": 0,
+      "seconds": 87.7,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+      "skill_sha256": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "I’ll use the no-negative-echo skill to draft the introduction around grouped reviews within one workspace.\n",
+        "Review permission requests in groups within a single workspace. The tool brings requests with identical permissions together, allowing an approver to process each group once. For example, five requests with the same permissions form one group; a request with a different permission set belongs in a separate group. Approvers can then focus each review on the permissions shared by that group."
+      ],
+      "answer": "Review permission requests in groups within a single workspace. The tool brings requests with identical permissions together, allowing an approver to process each group once. For example, five requests with the same permissions form one group; a request with a different permission set belongs in a separate group. Approvers can then focus each review on the permissions shared by that group.",
+      "artifacts": {},
+      "word_count_whitespace": 61,
+      "manual_review": "pass"
+    }
+  ],
+  "final_provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+  "limits": [
+    "Host-required first-use skill notices remain brief and task-focused; zero notices was not the criterion.",
+    "Native entry matches are checked in session records. Module reads include successful shell and MCP result text; an empty list means no observed returned module text.",
+    "Tests explicitly invoked the skill. Initial project copies used --add-dir, removed for the engineering rerun after the Windows sandbox conflict. Installed-mode checks use --add-dir for the external skill directory. Automatic activation and other harnesses were not evaluated.",
+    "Small same-host samples, not a controlled effectiveness estimate."
+  ],
+  "installed": [
+    {
+      "id": "opening-1",
+      "exit_code": 0,
+      "seconds": 37.2,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+      "skill_sha256": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6",
+      "modules_read": [
+        "EX-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "CSV 用纯文本保存表格数据；我会按 no-negative-echo 技能用两句话说明。\n",
+        "CSV（逗号分隔值）是一种保存表格数据的纯文本格式，通常每行表示一条记录，用逗号分隔各个字段。\n它可以用 Excel 或文本编辑器打开，常用于在不同软件之间导入、导出和交换数据。"
+      ],
+      "answer": "CSV（逗号分隔值）是一种保存表格数据的纯文本格式，通常每行表示一条记录，用逗号分隔各个字段。\n它可以用 Excel 或文本编辑器打开，常用于在不同软件之间导入、导出和交换数据。",
+      "artifacts": {},
+      "manual_review": "pass"
+    },
+    {
+      "id": "english-1",
+      "exit_code": 0,
+      "seconds": 102.6,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+      "skill_sha256": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6",
+      "modules_read": [
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0
+      ],
+      "messages": [
+        "I’m using no-negative-echo to draft the introduction around grouped reviews and the single-workspace scope.\n",
+        "Organize request reviews within a single workspace by grouping requests that ask for identical permissions. The request-review tool lets an approver process each group once, with matching requests handled together. For example, six requests for one permission set and four for another would form two groups: the approver processes the group of six once and the group of four once."
+      ],
+      "answer": "Organize request reviews within a single workspace by grouping requests that ask for identical permissions. The request-review tool lets an approver process each group once, with matching requests handled together. For example, six requests for one permission set and four for another would form two groups: the approver processes the group of six once and the group of four once.",
+      "artifacts": {},
+      "word_count_whitespace": 60,
+      "manual_review": "pass"
+    },
+    {
+      "id": "migration-1",
+      "exit_code": 0,
+      "seconds": 109.5,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "native_entry_matches_candidate": true,
+      "version": "2.1.1",
+      "provenance_sha256": "010e1ef68ce32ec90f073c4eface61bc7a6b2c9f00b0d8d3c6d33a86950bc1a7",
+      "skill_sha256": "12017302d68b345471668aaa1cc885a53132db2cc875cca9291ee251bcfba4a6",
+      "modules_read": [
+        "CO-1",
+        "PC-1"
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "messages": [
+        "我会使用 no-negative-echo 技能，先读取 notes.md，再分别编写客户版能力介绍和旧版调用者迁移指南，并核对必要信息是否保留。\n",
+        "两份文件已写入。迁移指南保留了 v2.0 兼容旧路径、v2.1 移除别名的时间窗口；分组要求写为核对条件，因为 notes.md 未指定由谁执行分组。现在通读文件，核对信息覆盖和链接。\n",
+        "已写入并核对：\n\n- [release-notes.md](/<task>/release-notes.md)：介绍当前能力及适用范围。\n- [migration.md](/<task>/migration.md)：说明路径更新、兼容期限、认证和验证步骤。\n\n必要信息均已保留，包括相同权限组合、整组审批、同一工作区限制，以及旧路径在 v2.0 保留、v2.1 移除。"
+      ],
+      "answer": "已写入并核对：\n\n- [release-notes.md](/<task>/release-notes.md)：介绍当前能力及适用范围。\n- [migration.md](/<task>/migration.md)：说明路径更新、兼容期限、认证和验证步骤。\n\n必要信息均已保留，包括相同权限组合、整组审批、同一工作区限制，以及旧路径在 v2.0 保留、v2.1 移除。",
+      "artifacts": {
+        "release-notes.md": "# BatchReview v2 发布说明\n\nBatchReview v2 支持按相同权限组合批量审批请求，一次审批即可处理整个分组。批量审批仅支持同一工作区内的请求。\n\n批量审批接口为 `/reviews/batch`，使用 Bearer token 认证。旧版调用者可参照[迁移指南](migration.md)完成接口切换。\n",
+        "migration.md": "# BatchReview v2 迁移指南\n\n本指南适用于使用 v1 `/review` 接口的调用者。\n\n1. **更新请求路径。** 将 `/review` 改为 v2 的 `/reviews/batch`。旧路径 `/review` 的别名在 v2.0 保留，到 v2.1 移除；请在升级至 v2.1 前完成路径更新。\n2. **沿用认证方式。** 继续使用 Bearer token 认证。\n3. **核对批量审批范围。** 批量审批仅支持同一工作区内的请求；核对每个分组内的请求具有相同权限组合。\n4. **验证审批结果。** 使用更新后的接口和符合上述条件的请求，确认一次审批处理整个分组。\n"
+      },
+      "manual_review": "pass"
+    }
+  ]
+}

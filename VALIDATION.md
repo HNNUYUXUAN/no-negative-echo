@@ -1,5 +1,21 @@
 # 验证记录 / Validation
 
+## 2.1.1 — opening, English copy and migration / 开场、英文与迁移
+
+2026-10-29，Windows x64，Python 3.12.14，Codex CLI 0.165.0-alpha.1.2，默认模型 gpt-6-astra。
+
+- 最终版本执行 123 项测试：115 通过、8 按平台条件跳过。覆盖安装、清单、扫描器、评分器及新增的三项 shell/MCP 模块读取证据回归。
+- 最终修订完成 2 次英文定向实测，安装后完成开场、英文和迁移各 1 次实测，5 次均通过人工审读。均从宿主展开的用户消息核对完整技能入口，来源哈希与最终发布包一致。
+- 前一候选执行 8 个通过案例，覆盖两次开场、两次英文、两次责任未知的迁移、一次责任明确的对照和一次自主工程修复。工程产物另经独立验证：现有两项测试、5 个金额边界、7 个非法输入及 3 行实际 CSV 通过。最终结尾规则调整后只重跑受影响的英文及安装代表案例，未将上述 8 个案例全部记作最终版本重跑。
+- 两次英文失败记录和一次工程环境阻塞均保留。工程初次因项目 `.agents` 只读父目录下的额外可写目录配置而未完成命令执行；删除评测器多余权限后重跑成功。模型当时准确报告未完成部分。
+- portable-skill-creator 结构检查通过。入口 4079 字节，双语模块均在 8192 字节内；发布生成器、补丁格式及更新文档本地链接检查通过。
+- 本机安装最终 2.1.1，18 个运行文件与发布包逐字节一致；2.1.0 和中间候选均保留在技能发现目录之外。未发现本地运行文件修改冲突。
+- 宿主要求的首次技能告知仍保留一次，并与任务信息合并。实测显式调用技能，未测试自动触发、其他宿主或跨设备效果。样例数量不足以推断长期稳定性或总体改善比例。
+
+输入、逐条判断和分阶段输出见 [protocol](evals/refinement-protocol.md)、[review](evals/refinement-review.md)、[results](evals/refinement-results.json)；工程独立复核见 [engineering check](evals/refinement-engineering-check.json)。公开记录包含实际回答与产物，原始会话事件留在本地。
+
+English: 123 tests ran (115 passed, 8 platform skips). Five final-revision native Codex checks passed manual review: two targeted English tasks and three installed-mode checks. Eight earlier candidate cases and their engineering evidence retain their original source hash. Two English failures and a sandbox-blocked engineering attempt remain recorded. All 18 installed runtime files match the final release; previous installations are preserved outside discovery directories. Required host notices remain, and automatic activation or other hosts were not tested.
+
 ## 2.1.0 — portability and documentation / 接入与文档
 
 2026-10-29，Windows x64，Python 3.12.14，Codex CLI 0.165.0-alpha.1.2。
